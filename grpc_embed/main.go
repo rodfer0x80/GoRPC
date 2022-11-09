@@ -3,5 +3,5 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("c2Client")
+	fmt.Println("gprc_embed")
 }

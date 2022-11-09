@@ -1,6 +1,6 @@
 syntax = "proto3";
-package grpc_bot;
-option go_package = "github.com/rodfer0x80/GoRPC/grpc_embed";
+package grpc_api;
+option go_package = "github.com/rodfer0x80/GoRPC/grpc_api";
 
 service Embed {
     rpc GetCommand (Empty) returns (Command);

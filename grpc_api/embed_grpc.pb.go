@@ -4,7 +4,7 @@
 // - protoc             v3.21.9
 // source: embed.proto
 
-package grpc_embed
+package grpc_api
 
 import (
 	context "context"
@@ -36,7 +36,7 @@ func NewEmbedClient(cc grpc.ClientConnInterface) EmbedClient {
 
 func (c *embedClient) GetCommand(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Command, error) {
 	out := new(Command)
-	err := c.cc.Invoke(ctx, "/grpc_bot.Embed/GetCommand", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpc_api.Embed/GetCommand", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -45,7 +45,7 @@ func (c *embedClient) GetCommand(ctx context.Context, in *Empty, opts ...grpc.Ca
 
 func (c *embedClient) SendResult(ctx context.Context, in *Command, opts ...grpc.CallOption) (*Empty, error) {
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, "/grpc_bot.Embed/SendResult", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpc_api.Embed/SendResult", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +94,7 @@ func _Embed_GetCommand_Handler(srv interface{}, ctx context.Context, dec func(in
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpc_bot.Embed/GetCommand",
+		FullMethod: "/grpc_api.Embed/GetCommand",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(EmbedServer).GetCommand(ctx, req.(*Empty))
@@ -112,7 +112,7 @@ func _Embed_SendResult_Handler(srv interface{}, ctx context.Context, dec func(in
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpc_bot.Embed/SendResult",
+		FullMethod: "/grpc_api.Embed/SendResult",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(EmbedServer).SendResult(ctx, req.(*Command))
@@ -124,7 +124,7 @@ func _Embed_SendResult_Handler(srv interface{}, ctx context.Context, dec func(in
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Embed_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "grpc_bot.Embed",
+	ServiceName: "grpc_api.Embed",
 	HandlerType: (*EmbedServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -157,7 +157,7 @@ func NewAdminClient(cc grpc.ClientConnInterface) AdminClient {
 
 func (c *adminClient) ExecuteCommand(ctx context.Context, in *Command, opts ...grpc.CallOption) (*Command, error) {
 	out := new(Command)
-	err := c.cc.Invoke(ctx, "/grpc_bot.Admin/ExecuteCommand", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpc_api.Admin/ExecuteCommand", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -202,7 +202,7 @@ func _Admin_ExecuteCommand_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpc_bot.Admin/ExecuteCommand",
+		FullMethod: "/grpc_api.Admin/ExecuteCommand",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AdminServer).ExecuteCommand(ctx, req.(*Command))
@@ -214,7 +214,7 @@ func _Admin_ExecuteCommand_Handler(srv interface{}, ctx context.Context, dec fun
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Admin_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "grpc_bot.Admin",
+	ServiceName: "grpc_api.Admin",
 	HandlerType: (*AdminServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

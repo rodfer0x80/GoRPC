@@ -3,5 +3,9 @@ build:
 	scripts/build.sh
 
 .PHONY: clean
-build:
+clean:
 	scripts/clean.sh
+
+.PHONY: run
+run:
+	scripts/run.sh
