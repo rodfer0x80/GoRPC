@@ -1,4 +1,4 @@
-package main
+package grpc_embed
 
 import "fmt"
 
