@@ -2,10 +2,7 @@
 
 
 import sys
-
-
-def readStdin():
-    return sys.stdin.read()
+import os
 
 
 def runAll():
@@ -35,11 +32,8 @@ def runAdmin():
 
 
 def runInterface():
-    cmd = "cd grpc_interface &&\
-		python3 -m venv venv &&\
-		source venv/bin/activate &&\
-		pip install --upgrade pip &&\
-		pip install -r requirements.txt"
+    cmd = "source ./grpc_interface/venv/bin/activate &&\
+		python ./grpc_interface/__main__.py"
     try:
         os.system(cmd)
         return 0
@@ -49,13 +43,15 @@ def runInterface():
 
 
 def main():
-    op = readStdin()
+    op = sys.stdin.read(3)
     if op == "all":
         return runAll()
-    elif op == "embed":
+    elif op == "emb":
         return runEmbed()
-    elif op == "admin":
+    elif op == "adm":
         return runAdmin()
+    elif op == "ifc":
+        return runInterface()
     else:
         return 1
 

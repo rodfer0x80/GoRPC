@@ -1,1 +1,2 @@
-customtinker
+wheel
+PyQt6
